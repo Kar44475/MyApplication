@@ -1,9 +1,11 @@
 package com.example.myapplication.model;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -18,8 +20,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.google.gson.Gson;
@@ -427,6 +432,286 @@ public class fragment1 extends Fragment
 //            }
 //        };
 //        handler.postDelayed(runnable,speedScroll);
+//    }
+//}
+
+
+
+
+
+//    public class cartviewadapter extends RecyclerView.Adapter<cartviewadapter.ViewHolder> {
+//        private Context mContext;
+//        private List<Added_item_cart> cart_arr;
+//
+//
+//        public cartviewadapter(Context mContext, List<Added_item_cart> cart_arr) {
+//            this.mContext = mContext;
+//            this.cart_arr = cart_arr;
+//        }
+//
+//        @NonNull
+//        @Override
+//        public cartviewadapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+//            View view;
+//            view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.cartview_data, viewGroup, false);
+//            return new cartviewadapter.ViewHolder(view);
+//        }
+//
+//        @Override
+//        public void onBindViewHolder(@NonNull final cartviewadapter.ViewHolder viewHolder, final int i)
+//        {
+//            // Log.e("cart_arr1","cart_arr"+cart_arr.get(i).getOption().get(0).getName());
+//            if(cart_arr.get(i).getOption().size()==0)
+//            {
+//                Glide.with(mContext)
+//                        .asBitmap()
+//                        .load("http://dentocart.in/image/cache/" + cart_arr.get(i).getProduct_image())
+//                        .into(viewHolder.image_img);
+//                viewHolder.name.setText(cart_arr.get(i).getProduct_name());
+//                viewHolder.price_txt.setText(cart_arr.get(i).getUnit_price().substring(0, cart_arr.get(i).getUnit_price().length() - 2));
+//                viewHolder.number_picker.setValue(Integer.parseInt(cart_arr.get(i).getQuantity()));
+//            }
+//            else
+//            {
+//                Glide.with(mContext)
+//                        .asBitmap()
+//                        .load("http://dentocart.in/image/cache/" + cart_arr.get(i).getProduct_image())
+//                        .into(viewHolder.image_img);
+//                viewHolder.name.setText(cart_arr.get(i).getOption().get(0).getName());
+//
+//                viewHolder.price_txt.setText(  cart_arr.get(i).getOption().get(0).getPrice().substring(0,cart_arr.get(i).getOption().get(0).getPrice().length() - 2));
+//                viewHolder.number_picker.setValue(Integer.parseInt(cart_arr.get(i).getQuantity()));
+//            }
+////            price=price+(viewHolder.number_picker.getValue())*(Double.parseDouble(viewHolder.price_txt.getText().toString()));
+////            qun=qun+Double.parseDouble(cart_arr.get(i).getQuantity());
+//
+//            Log.e("Total price" ,"Total price "+price+"  "+qun);
+//
+//            viewHolder.img_delete.setOnClickListener(new View.OnClickListener()
+//            {
+//                @Override
+//                public void onClick(View v)
+//                {
+//                    Log.e("array size after adding","array size after adding  reduce size" +cart_arr.size());
+//                    Log.e("array size after adding","array size after adding pointing reduce sizing.."+i);
+//
+//                    // meMap.remove(i);
+//                    try {
+//                        deletecart(cart_arr.get(i).getCart_id(), i);
+//                    }
+//                    catch (Exception e)
+//                    {
+//                        Log.e("error","error occured please try again");
+//                    }
+//
+////                    price=0.0;
+////                   qun=0.0;
+////                    for (int y=0;y<cart_arr.size();y++)
+////                    {
+////
+////
+////                        // Log.e("yyyyyy","yyyyyyy"+cart_arr.get(y).getQuantity());
+////
+////                        //  String m=cart_arr.get(y).getQuantity();
+////
+////                        //  Log.e("yyyyyy","yyyyyyy"+m);
+////
+////
+////
+////                        price=price+(Double.parseDouble(cart_arr.get(y).getUnit_price()))*(Double.parseDouble((cart_arr.get(y).getQuantity())));
+////                        qun=qun+ Integer.parseInt (cart_arr.get(y).getQuantity().toString());
+////                        Log.e("price qun","price qun"+price+"  "+qun);
+////
+////                    }
+//
+//
+////                    price=0.0;
+////                    qun=0.0;
+////                    price=price+(viewHolder.number_picker.getValue())*(Double.parseDouble(viewHolder.price_txt.getText().toString()));
+////                    qun=qun+Double.parseDouble(cart_arr.get(i).getQuantity());
+//
+//                    Log.e("Total price" ,"Total price "+price+"  "+qun);
+//
+//                }
+//            });
+//
+//            viewHolder.number_picker.setListener(new ScrollableNumberPickerListener() {
+//                @Override
+//                public void onNumberPicked(int value) {
+//                    //   if(viewHolder.number_picker.getValue()!=0)
+//                    //   {
+//                    updatecart(cart_arr.get(i).getCart_id(), value);
+//                    Log.e("array size after adding","array size after adding"+cart_arr.size());
+//                    Log.e("array size after adding","array size after adding pointing"+i);
+//                    //   }else {
+//                    //      viewHolder.number_picker.setValue(1);
+//                    //   }
+//
+////                    meMap.put(i+"",value+"");
+////
+//////                    price=0.0;
+//////                    qun=0.0;
+//////                    price=price+(viewHolder.number_picker.getValue())*(Double.parseDouble(viewHolder.price_txt.getText().toString()));
+//////                    qun=qun+Double.parseDouble(cart_arr.get(i).getQuantity());
+////
+////                    Log.e("Total price" ,"Total price "+price+"  "+qun);
+//                }
+//            });
+//
+//        }
+//
+//        @Override
+//        public int getItemCount()
+//        {
+//            return cart_arr.size();
+//        }
+//
+//        public class ViewHolder extends RecyclerView.ViewHolder
+//        {
+//
+//            LinearLayout img_delete;
+//            ImageView image_img;
+//            TextView name, price_txt;
+//            ScrollableNumberPicker number_picker;
+//
+//            public ViewHolder(View itemView)
+//            {
+//                super(itemView);
+//                image_img = itemView.findViewById(R.id.image_img);
+//                img_delete = itemView.findViewById(R.id.img_delete);
+//                name = itemView.findViewById(R.id.name_txt);
+//                number_picker = itemView.findViewById(R.id.number_picker);
+//                price_txt = itemView.findViewById(R.id.price_txt);
+//                number_picker.setMinValue(1);
+//                number_picker.setOnLongPressUpdateInterval(2300);
+//                //   number_picker.setOnLongPressUpdateInterval(5000000);
+//            }
+//        }
+//        public void deletecart(String cart_id, final int i)
+//        {
+//            try {
+//                hud5 = loading(mContext);
+//                hud5.show();
+//                Log.e("show dialog 5","execute show dialog 5");
+//                ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+//                Call<cart_delete> call = apiService.cart_delete(cart_id);
+//                call.enqueue(new Callback<cart_delete>() {
+//                    @Override
+//                    public void onResponse(Call<cart_delete> call, Response<cart_delete> response) {
+//                        try{
+//                            hud5.dismiss();
+//                        }catch (Exception e)
+//                        {
+//
+//                        }
+//                        String m = response.body().getMessage();
+//                        Toast.makeText(mContext, m, Toast.LENGTH_LONG).show();
+//
+////                        cart_arr.remove(i);
+////                        notifyDataSetChanged();
+////                        price=0.0;
+////                        List<String> position= new ArrayList<String>(meMap.keySet());
+////                        List<String> qunatity= new ArrayList<String>(meMap.values());
+////                        for (int z=0;z<position.size();z++)
+////                        {
+////                         price=price+Double.parseDouble( cart_arr.get(Integer.parseInt(position.get(z))).getUnit_price())*Double.parseDouble(qunatity.get(z));
+////                        }
+////                        Log.e("price","price"+price);
+//
+//
+//                        if (cart_arr.size() == 0) {
+//                            cart_empty_txt.setVisibility(View.VISIBLE);
+//                            cart_empty_txt.setText("No more Items");
+//
+//                        } else {
+//                            cart_empty_txt.setVisibility(View.GONE);
+//                        }
+//                        cart_arr.clear();
+//                        Loadcartitem();
+//                        loadtotal();
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<cart_delete> call, Throwable t) {
+//                        try{
+//                            hud5.dismiss();
+//                        }catch (Exception e)
+//                        {
+//
+//                        }
+//                    }
+//                });
+//            } catch (Exception e) {
+//                try{
+//                    hud5.dismiss();
+//                }catch (Exception ee)
+//                {
+//
+//                }
+//                Toast.makeText(mContext, "Please Check Your Internet Connection", Toast.LENGTH_LONG).show();
+//            }
+//
+//        }
+//
+//        public void updatecart(String cart_id, final int i) {
+//            try {
+//                //         hud6 = loading(mContext);
+//                //         hud6.show();
+//                Log.e("show dialog 6","execute show dialog 6");
+//                ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+//                Call<cart_updates> call = apiService.cart_update(cart_id, i);
+//                call.enqueue(new Callback<cart_updates>()
+//                {
+//                    @Override
+//                    public void onResponse(Call<cart_updates> call, Response<cart_updates> response)
+//                    {
+//                        //            hud6.dismiss();
+//                        //       Toast.makeText(mContext, response.body().getMessage(), Toast.LENGTH_LONG).show();
+//
+//
+////                        price=0.0;
+////                        List<String> position= new ArrayList<String>(meMap.keySet());
+////                        for (int z=0;z<position.size();z++)
+////                        {
+////                            price=price+Double.parseDouble( cart_arr.get(Integer.parseInt(position.get(z))).getUnit_price());
+////                            Log.e("price","price"+price);
+////                        }
+//
+//
+//
+////                        price=0.0;
+////                        qun=0.0;
+////                        for (int y=0;y<cart_arr.size();y++)
+////                        {
+////
+////
+////                            // Log.e("yyyyyy","yyyyyyy"+cart_arr.get(y).getQuantity());
+////
+////                            //  String m=cart_arr.get(y).getQuantity();
+////                            //  Log.e("yyyyyy","yyyyyyy"+m);
+////
+////
+////
+//////                            price=price+(Double.parseDouble(price.))*(Double.parseDouble((cart_arr.get(y).getQuantity())));
+//////                            qun=qun+ Integer.parseInt (cart_arr.get(y).getQuantity().toString());
+//////                            Log.e("price qun","price qun"+price+"  "+qun);
+////
+////                        }
+//
+//                        loadtotal();
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<cart_updates> call, Throwable t) {
+//                        //    hud6.dismiss();
+//                    }
+//                });
+//            } catch (Exception e) {
+//                //      hud6.dismiss();
+//                Toast.makeText(mContext, "Please Check Your Internet Connection", Toast.LENGTH_LONG).show();
+//            }
+//
+//        }
 //    }
 //}
 
